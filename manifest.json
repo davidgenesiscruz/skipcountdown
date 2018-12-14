@@ -1,0 +1,22 @@
+{
+    "author": "David Genesis Cruz",
+    "name": "Skip Countdown",
+    "version": "1.0.0",
+    "description": "Skip countdown for next episode in streaming services",
+    "manifest_version": 2,
+    "short_name": "Skip Countdown",
+    "background": {
+        "scripts": [ "background.js" ]
+    },
+    "content_scripts": [
+        {
+            "matches": [ "https://www.amazon.co.jp/**" ],
+            "js": [ "contentscript/amazon.js" ]
+        },
+        {
+            "matches": [ "https://www.netflix.com/watch/*" ],
+            "js": [ "contentscript/netflix.js" ]
+        }
+    ],
+    "permissions": [ "tabs" ]
+}
