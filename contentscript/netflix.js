@@ -1,12 +1,21 @@
 MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
-const nodeObserver = new MutationObserver((mutations) => {
+const mountPointObserver = new MutationObserver((mutations) => {
+    Array.from(mutations).find((mutation) => {
+        const found = Array.from(mutation.addedNodes).find((node) => {
+            const button = node.querySelector('.PlayIcon');
+            if (button) {
+                button.click();
+            }
 
+            return button != null;
+        });
+
+        return found != undefined;
+    });
 });
 
-// const node = document.querySelector(''); // .interrupter-actions .nf-flat-button
-// 
-// if (node) {
-//     nodeObserver.observe(node, { childList: true });
-// }
-// 
+const mountPoint = document.querySelector('#appMountPoint');
+ if (mountPoint) {
+    mountPointObserver.observe(mountPoint, { childList: true, subtree: true });
+}
