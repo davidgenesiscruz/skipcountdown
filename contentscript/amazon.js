@@ -23,7 +23,6 @@ const webPlayerObserver = new MutationObserver((mutations, observer) => {
                 if (skip) {
                     skip.click();
                 }
-                observer.disconnect();
             });
     });
 });
